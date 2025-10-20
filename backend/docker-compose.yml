@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: edu_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: grfcourses
+      MYSQL_USER: edu_user_admin
+      MYSQL_PASSWORD: edupass123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  db_data:

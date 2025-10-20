@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+from email.policy import default
 from pathlib import Path
 from decouple import config
 from django.conf.global_settings import APPEND_SLASH
@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': config("DB_HOST", default="localhost"),
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER", default="root"),
+        'PASSWORD': config("DB_PASSWORD"),
+        'PORT': config("DB_PORT", default="3306", cast=int),
     }
 }
 
