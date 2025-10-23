@@ -60,7 +60,7 @@ class SignUpView(APIView):
         user = User.objects.create(
             name=data.get('name'),
             email=data.get('email'),
-            password=make_password(data.get('name')),
+            password=make_password(data.get('password')),
         )
 
         access_token = RefreshToken.for_user(user).access_token
