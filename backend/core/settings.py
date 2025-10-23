@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+from datetime import timedelta
 from email.policy import default
 from pathlib import Path
 from decouple import config
@@ -139,5 +140,17 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'core.utils.custom_exceptions.custom_exception_handler',
     'DEFAULT_RENDERER_CLASSES': [
         'core.utils.renderers.renderers.CustomJSONRenderer'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
     ]
+}
+
+# JWT SETTINGS SETTINGS
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7)
 }
