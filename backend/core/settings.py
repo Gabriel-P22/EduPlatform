@@ -135,7 +135,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Rest Framework Settings
-
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'core.utils.custom_exceptions.custom_exception_handler',
     'DEFAULT_RENDERER_CLASSES': [
@@ -150,7 +149,6 @@ REST_FRAMEWORK = {
 }
 
 # JWT SETTINGS SETTINGS
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=7)
 }
