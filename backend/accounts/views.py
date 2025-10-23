@@ -28,7 +28,7 @@ class SignInView(APIView):
 
         user = User.objects.filter(email=email).first()
 
-        if not User:
+        if not user:
             raise AuthenticationFailed("Email or password invalid")
 
         if not check_password(password, user.password):
