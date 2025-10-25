@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # APPS
     'accounts',
+    'courses',
 
     # Rest Framework
     'rest_framework',
